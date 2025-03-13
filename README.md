@@ -1,4 +1,3 @@
-
 # Git_R_and_Presentation
 
 ## Introduction

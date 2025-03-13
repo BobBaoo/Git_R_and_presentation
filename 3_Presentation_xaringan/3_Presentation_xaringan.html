@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>我的第一份xaringan幻灯片</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Bob Bao" />
+    <meta name="date" content="2025-03-13" />
+    <script src="3_Presentation_xaringan_files/header-attrs-2.28/header-attrs.js"></script>
+    <link href="3_Presentation_xaringan_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="3_Presentation_xaringan_files/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="3_Presentation_xaringan_files/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# 我的第一份xaringan幻灯片
+]
+.author[
+### Bob Bao
+]
+.date[
+### 2025-03-13
+]
+
+---
+
+
+# 设置文字逐行出现
+
+## 渐进式显示示例
+
+- 使用“--”进行换行&lt;br&gt; 
+
+--
+
+- 例如：&lt;br&gt; 
+第一行内容&lt;br&gt; 
+&lt;br&gt; 
+--&lt;br&gt; 
+&lt;br&gt; 
+第二行内容
+
+--
+ 
+- 前后记得加入“`&lt;br&gt;` ”
+
+---
+
+# 调整字体格式
+
+- 使用markdown语法
+  - **粗体**、*斜体*、~~删除线~~
+&lt;br&gt; 
+
+- 使用***HTML***内置样式
+  - &lt;span style = "color: red; 
+  font-family: 'Comic Sans Ms'; "&gt;自定义颜色和字体:
+  &lt;br&gt;  `&lt;span style="color: red; font-family: 'Comic Sans MS';"&gt;`
+  
+  - &lt;/span&gt;（还原HTML内置样式）
+  &lt;br&gt;  `&lt;/span&gt;`&lt;br&gt; 
+  
+  - 字号调整
+   &lt;br&gt; &lt;span style="font-size: 24pt;"&gt;大字&lt;/span&gt; or
+   &lt;font size = 1&gt;小字&lt;/font&gt;
+   &lt;br&gt; `&lt;span style="font-size: 24pt;"&gt;`（使用`pt`单位）
+   &lt;br&gt; `&lt;font size = 1&gt;`
+   
+   - 自定义*CSS*类并应用（得自己探索一下）
+   
+---
+class: middle  # 垂直居中
+
+# 行间距控制 {.loose-spacing}
+- 第一行文本
+- 第二行文本
+- 第三行文本
+
+.right[  &lt;!-- 右对齐容器 --&gt;
+### 右侧标题
+此处内容靠右对齐
+]
+
+---
+
+## 第二页：分栏布局
+
+.pull-left[                 &lt;!-- 左栏内容 --&gt;
+### 左栏标题
+- 列表项 1
+- 列表项 2
+- 公式示例：$E = mc^2$
+]
+
+.pull-right[                &lt;!-- 右栏内容 --&gt;
+### 右栏标题
+
+``` r
+# 绘制压力数据图表
+plot(pressure, main = "压力数据", col = "blue")
+```
+
+![](3_Presentation_xaringan_files/figure-html/pressure-plot-1.png)&lt;!-- --&gt;
+]
+
+---
+
+class: center, middle, inverse  &lt;!-- 应用多个CSS类：居中、垂直居中、反色背景 --&gt;
+
+# 特殊布局页
+
+此处内容将居中显示在深色背景上
+
+---
+
+### 第三页：代码展示
+
+#### Python 代码块（指定语言）
+```python
+def hello():
+    print("Hello from Python!")
+```
+
+#### R 代码块（带输出）
+
+``` r
+# 绘制汽车速度与距离关系
+plot(cars, pch = 19, col = "red")
+```
+
+![](3_Presentation_xaringan_files/figure-html/cars-plot-1.png)&lt;!-- --&gt;
+
+``` r
+summary(cars)  # 输出统计摘要
+```
+
+```
+##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
