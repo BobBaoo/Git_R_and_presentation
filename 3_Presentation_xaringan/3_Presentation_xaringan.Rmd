@@ -12,7 +12,7 @@ output:
     dev: "png"                  # 图形设备类型（避免Cairo问题）
 ---
 
-# 设置文字逐行出现
+# 一、设置文字逐行出现
 
 ## 渐进式显示示例
 
@@ -33,7 +33,7 @@ output:
 
 ---
 
-# 调整字体格式
+# 二、调整字体格式
 
 - 使用markdown语法
   - **粗体**、*斜体*、~~删除线~~
@@ -56,58 +56,95 @@ output:
    - 自定义*CSS*类并应用（得自己探索一下）
    
 ---
-class: middle  # 垂直居中
 
-# 行间距控制 {.loose-spacing}
-- 第一行文本
-- 第二行文本
-- 第三行文本
+# 三、设置左右对齐
 
-.right[  <!-- 右对齐容器 -->
-### 右侧标题
-此处内容靠右对齐
-]
+- 使用`.right[]`进行右对齐设置
+<br>
+<br>
+.right[此处内容靠右对齐]  <!-- 右对齐容器 --> 
+
+- 使用`.left[]`进行左对齐设置
+<br>
+<br>
+.left[此处内容靠左对齐]
+
+- 当然默认是左对齐（哈哈哈）
 
 ---
 
-## 第二页：分栏布局
+# 四、分栏布局
 
-.pull-left[                 <!-- 左栏内容 -->
-### 左栏标题
+.pull-left[  
+## 1 左侧分栏布局
 - 列表项 1
-- 列表项 2
-- 公式示例：$E = mc^2$
-]
+<br>
+<br>
+- 列表项 2]
 
-.pull-right[                <!-- 右栏内容 -->
-### 右栏标题
+.pull-right[
+## 2 右侧分栏布局
+- 插入代码绘图如下：
+
 ```{r pressure-plot, dev="png"}
-# 绘制压力数据图表
+# 代码块内可以放入文字
 plot(pressure, main = "压力数据", col = "blue")
 ```
 ]
 
 ---
 
-class: center, middle, inverse  <!-- 应用多个CSS类：居中、垂直居中、反色背景 -->
+class: center, middle, inverse  <!--设置主题需应用多个CSS类：居中、垂直居中、反色背景 -->
 
-# 特殊布局页
+# <font size = 10> 五、特殊页 </font>
 
-此处内容将居中显示在深色背景上
+<span style = "font-size: 12pt";> 此处内容将居中显示在深色背景上 </span>
+
+<font size = 10> 可以调整字号
 
 ---
 
-### 第三页：代码展示
+# 六、代码展示
 
-#### Python 代码块（指定语言）
+#### Python 代码块（指定python但是不能输出）
 ```python
 def hello():
     print("Hello from Python!")
 ```
 
-#### R 代码块（带输出）
-```{r cars-plot}
+#### R 代码块（可以运行输出）
+```{r}
 # 绘制汽车速度与距离关系
 plot(cars, pch = 19, col = "red")
 summary(cars)  # 输出统计摘要
 ```
+
+---
+class: center, middle
+background-image: url(https://www.r-project.org/logo/Rlogo.png){width = 10%}
+background-size: contain
+background-position: middle
+
+---
+# 七、插入图片
+
+.pull-left[
+- ### 插入本地图片
+<br>
+![可缩放图片](pic/logo.png)
+]
+
+.pull-right[
+- ### 更改图片大小
+
+<img src="pic/logo.png" 
+     alt = '描述文字'
+     style="border: 3px solid orange; 
+            border-radius: 15px;
+            box-shadow: 3px 3px 5px grey";
+            width = "60%";
+            height = "60%"
+>
+]
+
+
