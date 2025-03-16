@@ -1,0 +1,98 @@
+---
+title: "基础Markdown语法"
+author: "Bob Bao"
+date: "`r Sys.Date()`"
+output: 
+  xaringan::moon_reader:
+    css: [default, css/Nice_look.css, css/Custumed_Style.css]
+    nature:                     # 幻灯片行为配置
+      highlightStyle: github    # 代码高亮风格（如GitHub风格）
+      highlightLines: true      # 突出显示代码块中的指定行
+      countIncrementalSlides: false  # 允许逐步动画计数
+    dev: "png"                  # 图形设备类型（避免Cairo问题）
+---
+
+# 一、标题设置
+
+## 使用#可以标记1-6级标题
+<br>
+### 使用#可以标记1-6级标题
+<br>
+#### 使用#可以标记1-6级标题
+<br>
+##### 使用#可以标记1-6级标题
+<br>
+###### 使用#可以标记1-6级标题
+<br>
+- 你可能会奇怪为什么标题少了一级，猜一猜它在哪里？
+
+---
+
+# 二、段落
+- Markdown段落没有特殊格式，直接编写文字。  
+<br>
+如果想要换行，请使用两个以上的空格+回车
+
+```{markdown}
+dispute  # 两个空格后按回车（争论）
+erosion
+```
+- 结果如下：
+
+```{markdown}
+dispute 
+
+erosion
+```
+
+ps：也可以回车来新起一段
+
+```{markdown}
+dispute 
+# enter
+erosion
+```
+
+---
+# 三、字体设置
+- 斜体
+```{markdown}
+_斜体_ or *斜体* 
+```
+结果：*斜体*
+
+- 粗体
+```{markdown}
+__粗体__ or **粗体** 
+```
+结果：**粗体**
+
+- 粗斜体
+```{markdown}
+___粗斜体___ or ***粗斜体***
+```
+结果：***粗斜体***
+
+------------
+
+---
+# 三、字体设置
+- 删除线
+```{markdown}
+~~删除线~~ 
+```
+结果：~~删除线~~ 
+
+- 下划线
+```{markdown}
+<u>下划线</u>
+```
+结果：<u>下划线</u>
+
+- 脚注
+```{markdown}
+ or ***粗斜体***
+```
+结果：***粗斜体***
+
+------------

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>我的第一份xaringan幻灯片</title>
+    <title>基础Markdown语法</title>
     <meta charset="utf-8" />
     <meta name="author" content="Bob Bao" />
     <meta name="date" content="2025-03-16" />
-    <script src="3_Presentation_xaringan_files/header-attrs-2.28/header-attrs.js"></script>
-    <link href="3_Presentation_xaringan_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <script src="2_Basic_Markdown_files/header-attrs-2.28/header-attrs.js"></script>
+    <link href="2_Basic_Markdown_files/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/Nice_look.css" type="text/css" />
     <link rel="stylesheet" href="css/Custumed_Style.css" type="text/css" />
   </head>
   <body>
@@ -14,7 +15,7 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# 我的第一份xaringan幻灯片
+# 基础Markdown语法
 ]
 .author[
 ### Bob Bao
@@ -26,168 +27,106 @@ class: center, middle, inverse, title-slide
 ---
 
 
-# 一、设置文字逐行出现
+# 一、标题设置
 
-## 渐进式显示示例
-
-- 使用“--”进行换行&lt;br&gt; 
-
---
-
-- 例如：&lt;br&gt; 
-第一行内容&lt;br&gt; 
-&lt;br&gt; 
---&lt;br&gt; 
-&lt;br&gt; 
-第二行内容
-
---
- 
-- 前后记得加入“`&lt;br&gt;` ”
+## 使用#可以标记1-6级标题
+&lt;br&gt;
+### 使用#可以标记1-6级标题
+&lt;br&gt;
+#### 使用#可以标记1-6级标题
+&lt;br&gt;
+##### 使用#可以标记1-6级标题
+&lt;br&gt;
+###### 使用#可以标记1-6级标题
+&lt;br&gt;
+- 你可能会奇怪为什么标题少了一级，猜一猜它在哪里？
 
 ---
 
-# 二、调整字体格式
-
-- 使用markdown语法
-  - **粗体**、*斜体*、~~删除线~~
-&lt;br&gt; 
-
-- 使用***HTML***内置样式
-  - &lt;span style = "color: red; 
-  font-family: 'Comic Sans Ms'; "&gt;自定义颜色和字体:
-  &lt;br&gt;  `&lt;span style="color: red; font-family: 'Comic Sans MS';"&gt;`
-  
-  - &lt;/span&gt;（还原HTML内置样式）
-  &lt;br&gt;  `&lt;/span&gt;`&lt;br&gt; 
-  
-  - 字号调整
-   &lt;br&gt; &lt;span style="font-size: 24pt;"&gt;大字&lt;/span&gt; or
-   &lt;font size = 1&gt;小字&lt;/font&gt;
-   &lt;br&gt; `&lt;span style="font-size: 24pt;"&gt;`（使用`pt`单位）
-   &lt;br&gt; `&lt;font size = 1&gt;`
-   
-   - 自定义*CSS*类并应用（得自己探索一下）
-   
----
-
-# 三、设置左右对齐
-
-- 使用`.right[]`进行右对齐设置
+# 二、段落
+- Markdown段落没有特殊格式，直接编写文字。  
 &lt;br&gt;
-&lt;br&gt;
-.right[此处内容靠右对齐]  &lt;!-- 右对齐容器 --&gt; 
-
-- 使用`.left[]`进行左对齐设置
-&lt;br&gt;
-&lt;br&gt;
-.left[此处内容靠左对齐]
-
-- 当然默认是左对齐（哈哈哈）
-
----
-
-# 四、分栏布局
-
-.pull-left[  
-## 1 左侧分栏布局
-- 列表项 1
-&lt;br&gt;
-&lt;br&gt;
-- 列表项 2]
-
-.pull-right[
-## 2 右侧分栏布局
-- 插入代码绘图如下：
+如果想要换行，请使用两个以上的空格+回车
 
 
-``` r
-# 代码块内可以放入文字
-plot(pressure, main = "压力数据", col = "blue")
+``` markdown
+dispute  # 两个空格后按回车（争论）
+erosion
+```
+- 结果如下：
+
+
+``` markdown
+dispute 
+
+erosion
 ```
 
-![](3_Presentation_xaringan_files/figure-html/pressure-plot-1.png)&lt;!-- --&gt;
-]
+ps：也可以回车来新起一段
 
----
 
-class: center, middle, inverse  &lt;!--设置主题需应用多个CSS类：居中、垂直居中、反色背景 --&gt;
-
-# &lt;font size = 10&gt; 五、特殊页 &lt;/font&gt;
-
-&lt;span style = "font-size: 12pt";&gt; 此处内容将居中显示在深色背景上 &lt;/span&gt;
-
-&lt;font size = 10&gt; 可以调整字号
-
----
-
-# 六、代码展示
-
-#### Python 代码块（指定python但是不能输出）
-```python
-def hello():
-    print("Hello from Python!")
-```
-
-#### R 代码块（可以运行输出）
-
-``` r
-# 绘制汽车速度与距离关系
-plot(cars, pch = 19, col = "red")
-```
-
-![](3_Presentation_xaringan_files/figure-html/unnamed-chunk-1-1.png)&lt;!-- --&gt;
-
-``` r
-summary(cars)  # 输出统计摘要
-```
-
-```
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
+``` markdown
+dispute 
+# enter
+erosion
 ```
 
 ---
-class: center, middle
-background-image: url(https://www.r-project.org/logo/Rlogo.png){width = 10%}
-background-size: contain
-background-position: middle
+# 三、字体设置
+- 斜体
+
+``` markdown
+_斜体_ or *斜体* 
+```
+结果：*斜体*
+
+- 粗体
+
+``` markdown
+__粗体__ or **粗体** 
+```
+结果：**粗体**
+
+- 粗斜体
+
+``` markdown
+___粗斜体___ or ***粗斜体***
+```
+结果：***粗斜体***
+
+------------
 
 ---
-# 七、插入图片
+# 三、字体设置
+- 删除线
 
-.pull-left[
-- ### 插入本地图片
-&lt;br&gt;
-![可缩放图片](pic/logo.png)
-]
+``` markdown
+~~删除线~~ 
+```
+结果：~~删除线~~ 
 
-.pull-right[
-- ### 更改图片大小
+- 下划线
 
-&lt;img src="pic/logo.png" 
-     alt = '描述文字'
-     style="border: 3px solid orange; 
-            border-radius: 15px;
-            box-shadow: 3px 3px 5px grey";
-            width = "60%";
-            height = "60%"
-&gt;
-]
+``` markdown
+&lt;u&gt;下划线&lt;/u&gt;
+```
+结果：&lt;u&gt;下划线&lt;/u&gt;
 
+- 脚注
 
+``` markdown
+ or ***粗斜体***
+```
+结果：***粗斜体***
+
+------------
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": true
+"countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
