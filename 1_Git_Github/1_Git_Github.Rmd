@@ -1,0 +1,15 @@
+---
+title: "Git and Github"  # 幻灯片标题
+author: "Bob Bao"               # 作者
+date: "`r Sys.Date()`"      # 自动生成当前日期
+output:
+  xaringan::moon_reader:
+    css: [css/research_style.css, css/zh_CN.css]
+    nature:                    
+      highlightStyle: github    # 代码高亮风格（如GitHub风格）
+      highlightLines: true      # 突出显示代码块中的指定行
+      countIncrementalSlides: false 
+    dev: "png"                  # 图形设备类型（避免Cairo问题）
+---
+# 你好
+你好

@@ -1,0 +1,48 @@
+/* 添加简约线条版本 */
+:root {
+  --dark-bg: #2C3E50;    
+  --text-dark: #2C3E50;  
+  --text-light: #FFFFFF; 
+  --line-color: #DCE0E3; /* 新增线条颜色 */
+}
+
+/* 在常规幻灯片添加顶部装饰线 */
+.remark-slide-content {
+  position: relative;
+  padding: 3em 4em;
+  border-top: 3px solid var(--dark-bg); /* 顶部深色线 */
+}
+
+/* 内容区添加浅色分隔线 */
+.remark-slide-content::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 4em;
+  right: 4em;
+  height: 1px;
+  background: var(--line-color);
+}
+
+h1 {
+  position: relative;
+  padding-bottom: 0.5em;
+}
+
+/* 列表项添加细线指示 */
+ul li {
+  position: relative;
+  padding-left: 1em;
+}
+
+ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5em;
+  height: 1px;
+  background: var(--line-color);
+}
+
+
