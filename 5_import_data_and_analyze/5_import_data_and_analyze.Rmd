@@ -1,0 +1,137 @@
+---
+title: "import data and analyze"
+author: "bob"
+date: "2025-03-27"
+output: html_document
+---
+# 1. install packages
+```{r library packages}
+if (!requireNamespace('pacman', quietly = TRUE)) {
+    install.packages('pacman')
+}
+pacman::p_load(bruceR, tidyverse, DT, janitor)
+```
+# 2. set working directory
+```{r working directory}
+getwd()
+# setwd('./5_import_data_and_analyze') # 改成自己的工作路径 
+```
+# 3. import data
+```{r import data}
+data <- import('327exp1.csv') |> 
+  clean_names()
+# data <- read_table()
+# data <- read_csv()
+```
+
+# 4. view your data
+```{r view your data}
+# datatable(head(data))
+glimpse(data)
+# check column names
+colnames(data)
+```
+
+# 5. select columns you need 
+```{r select data}
+data <- data |> 
+  select(subject, block, ends_with('rt'), ends_with('acc')) |>
+  glimpse()
+
+```
+
+# 6. select different table and filter
+```{r}
+sti1 <- data |> 
+  select(subject, block, sti1_acc, sti1_rt) |> 
+  filter(!is.na(sti1_acc)) |> 
+  pivot_wider(names_from = block, 
+              values_from = c(sti1_rt, sti1_acc))
+sti1 <- sti1 |> 
+  summarise(sti1_acc = rowMeans(select(sti1, contains('sti1_acc'))), 
+         sti2_rt = rowMeans(select(sti1, contains('sti1_rt'))))
+  
+
+sti2 <- data |> 
+  select(subject, block, sti2_acc, sti2_rt) |> 
+  filter(!is.na(sti2_acc)) |> 
+  pivot_wider(names_from = block, 
+              values_from = c(sti2_acc, sti2_rt))
+sti2 <- sti2 |> 
+  summarise(sti2_acc = rowMeans(select(sti2, contains('sti2_acc'))), 
+         sti2_rt = rowMeans(select(sti2, contains('sti2_rt'))))
+
+sti3 <- data |> 
+  select(subject, block, sti3_acc, sti3_rt) |> 
+  filter(!is.na(sti3_acc)) |> 
+  pivot_wider(names_from = block, 
+              values_from = c(sti3_rt, sti3_acc))
+sti3 <- sti3 |> 
+  summarise(sti3_acc = rowMeans(select(sti3, contains('sti3_acc'))), 
+         sti3_rt = rowMeans(select(sti3, contains('sti3_rt'))))
+sti1; sti2; sti3
+```
+
+
+# 6. select different table and filter
+```{r}
+sti1 <- data |> 
+  select(subject, block, sti1_acc, sti1_rt) |> 
+  filter(!is.na(sti1_acc)) |>
+  summarise(
+    sti1_acc = mean(c_across(sti1_acc)),
+    sti1_rt = mean(c_across(sti1_rt)),
+    .by = subject
+  )
+
+sti2 <- data |> 
+  select(subject, block, sti2_acc, sti2_rt) |> 
+  filter(!is.na(sti2_acc)) |> 
+  summarise(
+    sti2_acc = mean(c_across(sti2_acc)), 
+    sti2_rt = mean(c_across(sti2_rt)),
+    .by = subject
+  )
+
+sti3 <- data |> 
+  select(subject, block, sti3_acc, sti3_rt) |> 
+  filter(!is.na(sti3_acc)) |> 
+  summarise(
+    sti3_acc = mean(c_across(sti3_acc)), 
+    sti3_rt = mean(c_across(sti3_rt)),
+    .by = subject
+  )
+sti1; sti2; sti3
+```
+
+
+# Optional: deal with NA
+```{}
+# 替换所有na
+# data[is.na(data)] <- 0
+
+# 替换指定列的na
+# data <- data |> 
+#  mutate(
+#    a = replace_na(a, 0),  # 替换列 "a"
+#    b = replace_na(b, 0)   # 替换列 "b"
+# )
+```
+
+# 7. caculate average ACC or RT
+```{r deal with NA}
+data <- left_join(sti1, left_join(sti2, sti3))
+
+# view data again
+datatable(data) # 数据少的时候可以看
+
+# descriptive statistics
+summary(data)
+```
+
+# 8. write data
+```{r}
+# data |> write_csv('.csv') # 输出文件
+
+```
+

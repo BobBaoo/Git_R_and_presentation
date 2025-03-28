@@ -20,7 +20,7 @@
 2.  Rmarkdown的基本语法<br>
 3.  如何使用xinja包进行ppt制作<br>
 4.  如何使用bookdown写笔记<br>
-5.  数据的导入<br>
+5.  数据的导入和预处理<br>
 6.  使用bruceR包进行数据分析<br>
 7.  papaja的简单介绍<br>
 8.  apatabels创建表格<br>

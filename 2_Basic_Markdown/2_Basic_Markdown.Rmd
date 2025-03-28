@@ -205,11 +205,11 @@ print('hello world')
 
 ---
 # 七、超链接和图片
-- 图片大小设置
+- 图片大小位置设置
 ```{markdown}
-<img src="pic/logo.png" width="200px">
+<img src="pic/logo.png" width="200px" align = right>
 ```
-<img src="pic/logo.png" width="200px">
+<img src="pic/logo.png" width="200px" align = right>
 
 ---
 # 八、Markdown表格
